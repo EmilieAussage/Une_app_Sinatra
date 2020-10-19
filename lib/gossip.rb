@@ -10,7 +10,7 @@ class Gossip
   end
 
   def save #attention changer en fonction du doc
-    CSV.open("./db/gossip.csv ","a") do |csv|
+    CSV.open("./db/gossip.csv","ab") do |csv|
      csv  << [self.author, self.content]
     end
   end
@@ -26,5 +26,8 @@ class Gossip
   def self.find(id)
     data_base = CSV.read("./db/gossip.csv")
     return data_base[id] 
+  end
+
+  def update(author, content, id)
   end
 end

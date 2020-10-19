@@ -1,6 +1,7 @@
 require 'gossip'
 
 class ApplicationController < Sinatra::Base
+  
   get '/' do
     erb :index, locals: {gossips: Gossip.all}
   end
@@ -16,10 +17,14 @@ class ApplicationController < Sinatra::Base
 
 
   get '/gossips/:id/' do
-   erb :show, locals: {gossips: Gossip.find}
+   erb :show 
   end
 
-end
+  post '/gossips/:id/edit/' do
+    puts Gossip.new(params["gossip_author"], params["gossip_content"]).update
+    erb :edit
+  end
+  end
 
 
 

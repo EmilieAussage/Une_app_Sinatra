@@ -1,17 +1,17 @@
-html>
+<html>
   <head>
     <title>PAGE POTINS</title>
   </head>
   <body>
-    <h3>Page du potin numéro : <%= params['id'] %></h3>
+    <h3>Voici la page du potin numéro : <%= params['id'] %></h3>
    <p> 
 
    <% gossip_found = Gossip.find(params['id'].to_i) %>
     <% gossip_author = gossip_found[0] %>
    <% gossip_content = gossip_found[1] %>
 
-  author : <%= gossip_author %> </br>
-   content : <%= gossip_content %> </br>
+  Author : <%= gossip_author %> </br>
+   Content : <%= gossip_content %> </br>
 
       <a href="/">Page d'accueil</a>  </p> 
      <%=" <a href=\"/gossips/#{params['id']}/edit/\">Editer le potin</a>" %>
